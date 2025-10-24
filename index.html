@@ -4,29 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/assets/css/style.css" />
-    <title>Document</title>
+    <title>Simulateur de téléchargement</title>
   </head>
   <body>
     <main class="container">
-      <!-- Section pour les input -->
+      <!-- Section pour les inputs -->
       <h2>Votre téléchargement en temps réel</h2>
 
       <section class="inputClass">
-        <!-- Input pour choisir la taille du fichier a télécharger -->
-        <label for="fichier">Taille du fichier: </label>
+        <!-- Input pour choisir la taille du fichier à télécharger -->
+        <label for="fichier">Taille du fichier : </label>
         <input type="number" id="taille-fichier" />
 
-        <!-- List de selection pour les unité possible d'un fichier -->
-        <label for="select">Séléctionnez l'unité: </label>
+        <!-- Liste de sélection pour les unités possibles d'un fichier -->
+        <label for="select">Sélectionnez l'unité : </label>
         <select name="select" class="select-unit">
-          <option value="o">Octets(o)</option>
-          <option value="ko">Kiloctets(Ko)</option>
-          <option value="Mo">Mégaoctets(Mo)</option>
-          <option value="Go">Gigaoctets(Go)</option>
+          <option value="o">Octets (o)</option>
+          <option value="ko">Kilo-octets (Ko)</option>
+          <option value="Mo">Méga-octets (Mo)</option>
+          <option value="Go">Giga-octets (Go)</option>
         </select>
 
         <!-- Input pour choisir le débit -->
-        <label for="select">Saisir débit: </label>
+        <label for="select">Saisir le débit : </label>
         <input type="number" id="taille-debit" />
 
         <label for="debit">Débit (Kbps / Mbps)</label>
@@ -36,7 +36,7 @@
         </select>
       </section>
 
-      <!-- Section pour la bar de progression -->
+      <!-- Section pour la barre de progression -->
       <section class="progresBar">
         <progress id="progress-bar" value="0" max="100"></progress>
       </section>

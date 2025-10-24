@@ -1,39 +1,43 @@
-# Simulateur de téléchargement en temps réel
+# Real-time Download Simulator
 
-Ce projet est une **application web simple** permettant de **simuler le temps de téléchargement d’un fichier** en fonction de sa taille et du débit de connexion. Une **barre de progression animée** montre l’avancement du téléchargement de manière réaliste.
+This project is a **simple web application** that **simulates the download time of a file** based on its size and connection speed. An **animated progress bar** shows the download progress realistically.
 
-## Fonctionnalités
+## Features
 
-- Saisie de la **taille du fichier** à télécharger (Octets, Ko, Mo, Go).  
-- Saisie du **débit de téléchargement** (en Kbps ou Mbps).  
-- Calcul automatique du **temps estimé de téléchargement**.  
-- Affichage du **temps en heures, minutes et secondes**.  
-- Barre de progression qui **s’incrémente progressivement jusqu’à 100%**.  
-- Message final indiquant que le téléchargement est **terminé**.
+- Enter the **file size** to download (Bytes, KB, MB, GB).
+- Enter the **download speed** (in Kbps or Mbps).
+- Automatic calculation of the **estimated download time**.
+- Display the **time in hours, minutes, and seconds**.
+- Progress bar that **gradually increases to 100%**.
+- Final message indicating that the download is **complete**.
 
-## Structure du projet
+## Project Structure
+
+```
 project-root/
 │
-├─ index.html # Page principale
+├─ index.html # Main page
 ├─ assets/
 │ ├─ css/
-│ │ └─ style.css # Styles pour le formulaire et la barre de progression
+│ │ └─ style.css # Styles for the form and progress bar
 │ └─ js/
-│ └─ script.js # Logique de calcul et animation
-## Utilisation
+│ └─ script.js # Calculation logic and animation
+```
 
-1. Ouvrir `index.html` dans un navigateur.  
-2. Entrer la taille du fichier et sélectionner l’unité correspondante.  
-3. Entrer le débit de téléchargement et sélectionner l’unité (Kbps ou Mbps).  
-4. Cliquer sur **Valider** pour lancer le calcul et voir la barre de progression s’animer.  
-5. Le temps estimé de téléchargement s’affiche en haut de la barre.
+## Usage
 
-## Remarques
+1. Open `index.html` in a web browser.
+2. Enter the file size and select the corresponding unit.
+3. Enter the download speed and select the unit (Kbps or Mbps).
+4. Click **Validate** to start the calculation and see the progress bar animate.
+5. The estimated download time is displayed above the progress bar.
 
-- Les valeurs saisies doivent être **positives**.  
-- Le calcul convertit automatiquement les tailles et débits en bits pour un calcul précis.  
-- La barre de progression est simulée en pourcentage pour visualiser le téléchargement en temps réel.
+## Notes
 
-## Auteur
+- Entered values must be **positive**.
+- The calculation automatically converts sizes and speeds into bits for precise computation.
+- The progress bar is simulated in percentage to visualize the download in real time.
+
+## Author
 
 - **Gabo Yann / Dodou12**

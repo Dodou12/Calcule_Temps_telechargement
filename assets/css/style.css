@@ -1,4 +1,4 @@
-/* Réinitialisation des styles par défaut */
+/* Reset default styles */
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +11,7 @@ body {
   line-height: 1.6;
 }
 
-/* Style général du conteneur principal */
+/* Main container style */
 .container {
   max-width: 600px;
   margin: 40px auto;
@@ -26,7 +26,7 @@ body {
   transform: translateY(-3px);
 }
 
-/* Style du titre */
+/* Title style */
 h2 {
   text-align: center;
   color: #2c3e50;
@@ -35,7 +35,7 @@ h2 {
   font-weight: 600;
 }
 
-/* Style de la section des inputs */
+/* Input section style */
 .inputClass {
   display: flex;
   flex-direction: column;
@@ -46,14 +46,14 @@ h2 {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Style des labels */
+/* Label style */
 label {
   font-size: 1rem;
   color: #34495e;
   font-weight: 500;
 }
 
-/* Style des inputs et select */
+/* Input and select style */
 input[type="number"],
 select {
   padding: 10px;
@@ -70,14 +70,7 @@ select:focus {
   box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
 }
 
-/* Style des select */
-.select {
-  width: 100%;
-  max-width: 200px;
-  cursor: pointer;
-}
-
-/* Style de la barre de progression */
+/* Progress bar section */
 .progresBar {
   margin: 20px 0;
   text-align: center;
@@ -90,7 +83,7 @@ progress {
   overflow: hidden;
 }
 
-/* Personnalisation de la barre de progression */
+/* Customize progress bar */
 progress::-webkit-progress-bar {
   background-color: #dfe6e9;
   border-radius: 10px;
@@ -107,13 +100,13 @@ progress::-moz-progress-bar {
   border-radius: 10px;
 }
 
-/* Style du message */
+/* Message style */
 .msg {
   text-align: center;
   margin: 20px 0;
 }
 
-.messsage {
+.message {
   display: inline-block;
   padding: 10px 20px;
   color: #fff;
@@ -121,20 +114,20 @@ progress::-moz-progress-bar {
   font-size: 1rem;
 }
 
-.messsage.success {
+.message.success {
   background-color: #2ecc71;
   border-radius: 6px;
 }
-.messsage.error {
+.message.error {
   background-color: #e74c3c;
   border-radius: 6px;
 }
 
-.messsage:hover {
+.message:hover {
   transform: scale(1.05);
 }
 
-/* Style du bouton */
+/* Button style */
 .valide {
   text-align: center;
 }
@@ -159,7 +152,6 @@ button:hover {
 button:active {
   transform: translateY(0);
 }
-
 
 /* Responsive design */
 @media (max-width: 480px) {

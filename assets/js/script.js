@@ -1,120 +1,120 @@
-const tailleDebitInput = document.getElementById("taille-debit"); // champ de saisie du débit
-const tailleFichierInput = document.getElementById("taille-fichier"); // champ de saisie de la taille du fichier
-const selectUnite = document.querySelector("select.select-unit"); // sélection de l'unité du fichier
-const selectDebit = document.querySelector("select.select-debit"); // sélection de l'unité du débit
-const progressBarAffichage = document.querySelector("#progress-bar"); // barre de progression
-const messageResultat = document.querySelector("#message"); // affichage du message de résultat
-const btnValideCalcule = document.querySelector("button"); // bouton de validation
+const downloadSpeedInput = document.getElementById("taille-debit"); // input for download speed
+const fileSizeInput = document.getElementById("taille-fichier"); // input for file size
+const unitSelect = document.querySelector("select.select-unit"); // file unit selection
+const speedUnitSelect = document.querySelector("select.select-debit"); // speed unit selection
+const progressBarDisplay = document.querySelector("#progress-bar"); // progress bar
+const resultMessage = document.querySelector("#message"); // display result message
+const submitButton = document.querySelector("button"); // submit button
 
-// Initialisation des variables avec les valeurs saisies
-let valeurFichier = tailleFichierInput.value;
-let valeurDebit = tailleDebitInput.value;
-let valeurSelectDebit = selectDebit.value;
-let valeurSelctUnite = selectUnite.value;
-let conversionFichier = 0; // taille du fichier convertie en octets
-let conversionDebit = 0; // débit converti en octets/s
-let temps_telechargement = 0; // temps de téléchargement calculé
-let unite = ["o", "ko", "Mo", "Go"]; // unités possibles pour la taille
-let debit = ["kb", "Mb"]; // unités possibles pour le débit
+// Initialize variables with input values
+let fileValue = fileSizeInput.value;
+let speedValue = downloadSpeedInput.value;
+let selectedSpeedUnit = speedUnitSelect.value;
+let selectedFileUnit = unitSelect.value;
+let convertedFileSize = 0; // file size converted to bytes
+let convertedSpeed = 0; // speed converted to bytes/sec
+let downloadTime = 0; // calculated download time
+let units = ["o", "ko", "Mo", "Go"]; // possible file units
+let speeds = ["kb", "Mb"]; // possible speed units
 
-// Conversion de la taille du fichier en octets
-function convertirFichier() {
-  if (selectUnite) {
-    if (valeurSelctUnite === unite[0]) {
-      conversionFichier = valeurFichier * 8; // o → bits
+// Convert file size to bytes
+function convertFileSize() {
+  if (unitSelect) {
+    if (selectedFileUnit === units[0]) {
+      convertedFileSize = fileValue * 8; // bytes → bits
     }
-    if (valeurSelctUnite === unite[1]) {
-      conversionFichier = valeurFichier * 1024; // ko → octets
+    if (selectedFileUnit === units[1]) {
+      convertedFileSize = fileValue * 1024; // KB → bytes
     }
-    if (valeurSelctUnite === unite[2]) {
-      conversionFichier = valeurFichier * 1024 * 1024; // Mo → octets
+    if (selectedFileUnit === units[2]) {
+      convertedFileSize = fileValue * 1024 * 1024; // MB → bytes
     }
-    if (valeurSelctUnite === unite[3]) {
-      conversionFichier = valeurFichier * 1024 * 1024 * 1024; // Go → octets
+    if (selectedFileUnit === units[3]) {
+      convertedFileSize = fileValue * 1024 * 1024 * 1024; // GB → bytes
     }
   }
 }
 
-// Conversion du débit en octets/s
-function convertirDebit() {
-  if (selectDebit) {
-    if (valeurSelectDebit === debit[0]) {
-      conversionDebit = (valeurDebit * 1024) / 8; // kb/s → octets/s
+// Convert download speed to bytes/sec
+function convertSpeed() {
+  if (speedUnitSelect) {
+    if (selectedSpeedUnit === speeds[0]) {
+      convertedSpeed = (speedValue * 1024) / 8; // kb/s → bytes/sec
     }
-    if (valeurSelectDebit === debit[1]) {
-      conversionDebit = (valeurDebit * 1024 * 1024) / 8; // Mb/s → octets/s
+    if (selectedSpeedUnit === speeds[1]) {
+      convertedSpeed = (speedValue * 1024 * 1024) / 8; // Mb/s → bytes/sec
     }
   }
 }
 
-function afficherMessages() {} // fonction vide, réservée pour messages supplémentaires
+function displayMessages() {} // empty function reserved for additional messages
 
-// Calcul et affichage du temps de téléchargement
-function calculerTempsTelechargement() {
-  temps_telechargement = conversionFichier / conversionDebit; // temps en secondes
+// Calculate and display download time
+function calculateDownloadTime() {
+  downloadTime = convertedFileSize / convertedSpeed; // time in seconds
   let s, m, h;
 
-  if (temps_telechargement >= 3600) {
-    // si ≥ 1 heure
-    h = Math.floor(temps_telechargement / 3600);
-    m = Math.floor((temps_telechargement % 3600) / 60);
-    s = Math.floor(temps_telechargement % 60);
+  if (downloadTime >= 3600) {
+    // if ≥ 1 hour
+    h = Math.floor(downloadTime / 3600);
+    m = Math.floor((downloadTime % 3600) / 60);
+    s = Math.floor(downloadTime % 60);
 
-    if (messageResultat) {
-      messageResultat.textContent = `Le temps de telechargement est de ${h}h:${m}m:${s}s`;
+    if (resultMessage) {
+      resultMessage.textContent = `Download time: ${h}h:${m}m:${s}s`;
     }
-  } else if (temps_telechargement >= 60) {
-    // si ≥ 1 minute
-    m = Math.floor(temps_telechargement / 60);
-    s = Math.floor(temps_telechargement % 60);
-    if (messageResultat) {
-      messageResultat.textContent = `Le temps de telechargement est de ${m}m:${s}s`;
+  } else if (downloadTime >= 60) {
+    // if ≥ 1 minute
+    m = Math.floor(downloadTime / 60);
+    s = Math.floor(downloadTime % 60);
+    if (resultMessage) {
+      resultMessage.textContent = `Download time: ${m}m:${s}s`;
     }
   } else {
-    // moins d'une minute
-    s = temps_telechargement;
-    if (messageResultat) {
+    // less than a minute
+    s = downloadTime;
+    if (resultMessage) {
       setTimeout(() => {
-        messageResultat.textContent = `Le temps de telechargement est de ${s}s`;
+        resultMessage.textContent = `Download time: ${s}s`;
       }, 500);
     }
   }
 }
 
-// Animation de la barre de progression en %
+// Animate the progress bar in %
 function progressBar() {
-  progressBarAffichage.value = 0; // départ à 0%
-  const duree = temps_telechargement; // durée totale du téléchargement en secondes
-  const increment = 100 / duree; // pourcentage à ajouter chaque seconde
-  let pourcentage = 0;
+  progressBarDisplay.value = 0; // start at 0%
+  const duration = downloadTime; // total download time in seconds
+  const increment = 100 / duration; // % to add each second
+  let percentage = 0;
 
   const intervalId = setInterval(() => {
-    pourcentage += increment; // incrémentation du pourcentage
-    if (pourcentage >= 100) {
-      // fin de la simulation
-      pourcentage = 100;
+    percentage += increment; // increment percentage
+    if (percentage >= 100) {
+      // end of simulation
+      percentage = 100;
       clearInterval(intervalId);
-      messageResultat.textContent = "✅Terminé"; // message final
+      resultMessage.textContent = "✅Completed"; // final message
     }
-    progressBarAffichage.value = pourcentage; // mise à jour de la barre
-  }, 1000); // intervalle d'une seconde
+    progressBarDisplay.value = percentage; // update bar
+  }, 1000); // 1-second interval
 }
 
-// Événement du clic sur le bouton de calcul
-btnValideCalcule.addEventListener("click", () => {
-  valeurFichier = parseFloat(tailleFichierInput.value); // récupération et conversion en nombre
-  valeurDebit = parseFloat(tailleDebitInput.value);
-  valeurSelectDebit = selectDebit.value;
-  valeurSelctUnite = selectUnite.value;
+// Click event on the submit button
+submitButton.addEventListener("click", () => {
+  fileValue = parseFloat(fileSizeInput.value); // convert input to number
+  speedValue = parseFloat(downloadSpeedInput.value);
+  selectedSpeedUnit = speedUnitSelect.value;
+  selectedFileUnit = unitSelect.value;
 
-  // vérification des valeurs
-  if (valeurFichier <= 0 || valeurDebit <= 0) {
-    messageResultat.textContent = "Les valeurs ne peuvent etre negatif ";
+  // check values
+  if (fileValue <= 0 || speedValue <= 0) {
+    resultMessage.textContent = "Values cannot be negative";
     return;
   }
 
-  convertirFichier(); // conversion de la taille
-  convertirDebit(); // conversion du débit
-  calculerTempsTelechargement(); // calcul du temps
-  progressBar(); // lancement de la barre de progression
+  convertFileSize(); // convert file size
+  convertSpeed(); // convert speed
+  calculateDownloadTime(); // calculate time
+  progressBar(); // start progress bar animation
 });

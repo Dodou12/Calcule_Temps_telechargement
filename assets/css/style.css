@@ -1,0 +1,184 @@
+/* Réinitialisation des styles par défaut */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #c7dadf;
+  line-height: 1.6;
+}
+
+/* Style général du conteneur principal */
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #eff1f5;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+.container:hover {
+  box-shadow: 0 6px 16px 4px rgba(0, 0, 0, 0.25);
+  transform: translateY(-3px);
+}
+
+/* Style du titre */
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Style de la section des inputs */
+.inputClass {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  background-color: #cadefc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Style des labels */
+label {
+  font-size: 1rem;
+  color: #34495e;
+  font-weight: 500;
+}
+
+/* Style des inputs et select */
+input[type="number"],
+select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #dfe6e9;
+  border-radius: 6px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="number"]:focus,
+select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+/* Style des select */
+.select {
+  width: 100%;
+  max-width: 200px;
+  cursor: pointer;
+}
+
+/* Style de la barre de progression */
+.progresBar {
+  margin: 20px 0;
+  text-align: center;
+}
+
+progress {
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Personnalisation de la barre de progression */
+progress::-webkit-progress-bar {
+  background-color: #dfe6e9;
+  border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #3498db;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+progress::-moz-progress-bar {
+  background-color: #3498db;
+  border-radius: 10px;
+}
+
+/* Style du message */
+.msg {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.messsage {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.messsage.success {
+  background-color: #2ecc71;
+  border-radius: 6px;
+}
+.messsage.error {
+  background-color: #e74c3c;
+  border-radius: 6px;
+}
+
+.messsage:hover {
+  transform: scale(1.05);
+}
+
+/* Style du bouton */
+.valide {
+  text-align: center;
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .container {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  input[type="number"],
+  select {
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

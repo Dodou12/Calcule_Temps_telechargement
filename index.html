@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="container">
+      <!-- Section pour les input -->
+      <h2>Votre téléchargement en temps réel</h2>
+
+      <section class="inputClass">
+        <!-- Input pour choisir la taille du fichier a télécharger -->
+        <label for="fichier">Taille du fichier: </label>
+        <input type="number" id="taille-fichier" />
+
+        <!-- List de selection pour les unité possible d'un fichier -->
+        <label for="select">Séléctionnez l'unité: </label>
+        <select name="select" class="select-unit">
+          <option value="o">Octets(o)</option>
+          <option value="ko">Kiloctets(Ko)</option>
+          <option value="Mo">Mégaoctets(Mo)</option>
+          <option value="Go">Gigaoctets(Go)</option>
+        </select>
+
+        <!-- Input pour choisir le débit -->
+        <label for="select">Saisir débit: </label>
+        <input type="number" id="taille-debit" />
+
+        <label for="debit">Débit (Kbps / Mbps)</label>
+        <select name="select" class="select-debit">
+          <option value="kb">Kilobits/s</option>
+          <option value="Mb">Megabits/s</option>
+        </select>
+      </section>
+
+      <!-- Section pour la bar de progression -->
+      <section class="progresBar">
+        <progress id="progress-bar" value="0" max="100"></progress>
+      </section>
+
+      <!-- Section pour afficher un message -->
+      <section class="msg">
+        <div id="message"></div>
+      </section>
+
+      <!-- Section pour valider le formulaire -->
+      <section class="valide">
+        <button>Valider</button>
+      </section>
+    </main>
+
+    <script src="/assets/js/script.js"></script>
+  </body>
+</html>

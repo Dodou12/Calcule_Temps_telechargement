@@ -36,4 +36,4 @@ project-root/
 
 ## Auteur
 
-- **Ton Gabo Yann / Dodou12**
+- **Gabo Yann / Dodou12**
